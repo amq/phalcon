@@ -5,7 +5,7 @@ LABEL maintainer "https://github.com/amq/"
 ENV PHALCON_VERSION=3.0.4
 ENV COMPOSER_VERSION=1.4.1
 
-RUN set -xe && \
+RUN set -xe \
 
 # cphalcon
     && curl -LO https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz \
