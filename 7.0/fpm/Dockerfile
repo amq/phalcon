@@ -24,9 +24,9 @@ RUN set -xe \
     && rm -f v${PHALCON_VERSION}.tar.gz
 
 # composer
-RUN curl -LO https://getcomposer.org/download/${COMPOSER_VERSION}/composer.phar \
-    && php composer.phar --install-dir=/usr/local/bin --filename=composer \
-    && rm composer.phar
+RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
+    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && rm -f composer-setup.php
 
 # php modules
 RUN apt-get update -y \
