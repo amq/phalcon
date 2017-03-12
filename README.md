@@ -5,7 +5,6 @@
 - Composer
 - OPcache
 - PDO_MYSQL
-- PDO_PGSQL
 - SOAP
 - Redis
 - Xdebug

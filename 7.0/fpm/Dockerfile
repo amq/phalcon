@@ -25,7 +25,7 @@ RUN set -xe \
 
 # composer
 RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
-    && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+    && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm -f composer-setup.php
 
 # php modules
@@ -34,4 +34,4 @@ RUN apt-get update -y \
     && apt-get clean -y \
     && pecl install redis xdebug \
     && docker-php-ext-enable redis xdebug \
-    && docker-php-ext-install opcache pdo_mysql pdo_pgsql soap zip
+    && docker-php-ext-install opcache pdo_mysql soap zip
