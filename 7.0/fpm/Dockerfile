@@ -32,4 +32,6 @@ RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
 RUN apt-get update -y \
     && apt-get install -y libxml2-dev --no-install-recommends \
     && apt-get clean -y \
-    && docker-php-ext-install opcache pdo_mysql soap
+    && pecl install redis xdebug \
+    && docker-php-ext-enable redis xdebug \
+    && docker-php-ext-install opcache pdo_mysql pdo_pgsql soap zip
