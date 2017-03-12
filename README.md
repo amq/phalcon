@@ -8,7 +8,6 @@
 - SOAP
 - Redis
 - Xdebug
-- Zip
 
 ## Supported tags
 

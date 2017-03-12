@@ -3,7 +3,6 @@ FROM php:7.0
 LABEL maintainer "https://github.com/amq/"
 
 ENV PHALCON_VERSION=3.0.4
-
 RUN set -xe \
 
 # cphalcon
@@ -22,9 +21,8 @@ RUN set -xe \
     && ln -s /usr/local/phalcon-devtools/phalcon.php /usr/local/bin/phalcon \
     && rm -f v${PHALCON_VERSION}.tar.gz
 
-ENV COMPOSER_VERSION=1.4.1
-
 # composer
+ENV COMPOSER_VERSION=1.4.1
 RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm -f composer-setup.php
@@ -35,4 +33,4 @@ RUN apt-get update -y \
     && apt-get clean -y \
     && pecl install redis xdebug \
     && docker-php-ext-enable redis xdebug \
-    && docker-php-ext-install opcache pdo_mysql soap zip
+    && docker-php-ext-install opcache pdo_mysql soap
