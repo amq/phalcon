@@ -3,7 +3,6 @@ FROM php:5.6
 LABEL maintainer "https://github.com/amq/"
 
 ENV PHALCON_VERSION=3.0.4
-ENV COMPOSER_VERSION=1.4.1
 
 RUN set -xe \
 
@@ -22,6 +21,8 @@ RUN set -xe \
     && mv phalcon-devtools-${PHALCON_VERSION} /usr/local/phalcon-devtools \
     && ln -s /usr/local/phalcon-devtools/phalcon.php /usr/local/bin/phalcon \
     && rm -f v${PHALCON_VERSION}.tar.gz
+
+ENV COMPOSER_VERSION=1.4.1
 
 # composer
 RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
