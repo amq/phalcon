@@ -29,7 +29,7 @@ RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
 
 # php modules
 RUN apt-get update -y \
-    && apt-get install -y libxml2-dev --no-install-recommends \
+    && apt-get install -y libxml2-dev git --no-install-recommends --no-install-suggests \
     && apt-get clean -y \
     && pecl install redis xdebug \
     && docker-php-ext-enable redis xdebug \
