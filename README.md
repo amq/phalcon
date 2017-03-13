@@ -1,13 +1,18 @@
 ## What's included
 
+PHP modules:
 - Phalcon
-- Phalcon CLI
-- Composer
 - OPcache
 - PDO_MYSQL
 - SOAP
 - Redis
 - Xdebug
+- Zip
+
+Tools:
+- Phalcon CLI
+- Composer
+- Git
 
 ## Supported tags
 
