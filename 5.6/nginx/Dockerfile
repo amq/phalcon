@@ -26,6 +26,6 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY default.conf /etc/nginx/conf.d/default.conf
 
-EXPOSE 80 443 9000
+EXPOSE 80 443
 
 CMD ["/usr/bin/supervisord"]
