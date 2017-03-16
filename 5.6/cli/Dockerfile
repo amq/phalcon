@@ -36,3 +36,5 @@ RUN apt-get update -y \
     && docker-php-ext-install opcache pdo_mysql soap zip
 
 WORKDIR /app
+
+RUN usermod -u 1000 www-data
