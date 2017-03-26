@@ -33,7 +33,7 @@ RUN apt-get update -y \
     && apt-get clean -y \
     && pecl install redis xdebug \
     && docker-php-ext-enable redis xdebug \
-    && docker-php-ext-install opcache pdo_mysql soap zip
+    && docker-php-ext-install opcache pdo_mysql mysqli soap zip
 
 WORKDIR /app
 
