@@ -4,6 +4,7 @@ PHP modules:
 - Phalcon
 - OPcache
 - PDO_MYSQL
+- MySQLi
 - SOAP
 - Redis
 - Xdebug
