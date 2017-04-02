@@ -17,6 +17,9 @@ Tools:
 
 ## Supported tags
 
+* [`7.1-cli`, `7.1` (7.1/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.1/cli/Dockerfile)
+* [`7.1-fpm` (7.1/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.1/fpm/Dockerfile)
+* [`7.1-nginx` (7.1/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.1/nginx/Dockerfile)
 * [`7.0-cli`, `7.0`, `cli`, `latest` (7.0/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.0/cli/Dockerfile)
 * [`7.0-fpm`, `fpm` (7.0/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.0/fpm/Dockerfile)
 * [`7.0-nginx`, `nginx` (7.0/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.0/nginx/Dockerfile)
