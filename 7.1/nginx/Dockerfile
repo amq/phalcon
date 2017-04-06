@@ -2,24 +2,24 @@ FROM php:7.1-fpm
 
 LABEL maintainer "https://github.com/amq/"
 
-ENV PHALCON_VERSION=3.1.x
+ENV PHALCON_VERSION=3.1.2
 RUN set -xe \
 
 # cphalcon
-    && curl -LO https://github.com/phalcon/cphalcon/archive/${PHALCON_VERSION}.tar.gz \
-    && tar xzf ${PHALCON_VERSION}.tar.gz \
+    && curl -LO https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz \
+    && tar xzf v${PHALCON_VERSION}.tar.gz \
     && cd cphalcon-${PHALCON_VERSION}/build \
     && ./install \
     && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini \
     && cd ../.. \
-    && rm -rf ${PHALCON_VERSION}.tar.gz cphalcon-${PHALCON_VERSION} \
+    && rm -rf v${PHALCON_VERSION}.tar.gz cphalcon-${PHALCON_VERSION} \
 
 # devtools
-    && curl -LO https://github.com/phalcon/phalcon-devtools/archive/${PHALCON_VERSION}.tar.gz \
-    && tar xzf ${PHALCON_VERSION}.tar.gz \
+    && curl -LO https://github.com/phalcon/phalcon-devtools/archive/v${PHALCON_VERSION}.tar.gz \
+    && tar xzf v${PHALCON_VERSION}.tar.gz \
     && mv phalcon-devtools-${PHALCON_VERSION} /usr/local/phalcon-devtools \
     && ln -s /usr/local/phalcon-devtools/phalcon.php /usr/local/bin/phalcon \
-    && rm -f ${PHALCON_VERSION}.tar.gz
+    && rm -f v${PHALCON_VERSION}.tar.gz
 
 # composer
 ENV COMPOSER_VERSION=1.4.1

@@ -2,7 +2,7 @@ FROM php:5.6
 
 LABEL maintainer "https://github.com/amq/"
 
-ENV PHALCON_VERSION=3.1.0
+ENV PHALCON_VERSION=3.1.2
 RUN set -xe \
 
 # cphalcon
