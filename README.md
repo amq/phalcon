@@ -17,6 +17,73 @@ Tools:
 - Composer
 - Git
 
+## Usage examples
+
+### Nginx
+```
+# docker-compose.yml
+
+  phalcon:
+    image: amqamq/phalcon:nginx
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./project:/app
+```
+
+### Nginx + FPM
+
+```
+# docker-compose.yml
+
+  nginx:
+    image: nginx:mainline
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./project:/app
+
+  phalcon:
+    image: amqamq/phalcon:7.1-fpm
+    restart: always
+    volumes:
+      - ./phalcon:/app
+
+# ./docker/nginx/conf.d/default.conf
+
+    server {
+        listen 80;
+        server_name _;
+        root /app/public;
+
+        index index.php index.html;
+
+        location / {
+            try_files $uri /index.php$is_args$args;
+        }
+
+        location ~ \.php$ {
+            try_files $uri =404;
+            include fastcgi_params;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_pass phalcon:9000;
+        }
+    }
+```
+
+### Phalcon Developer Tools
+```
+docker run -it --rm -v $(pwd)/project:/app amqamq/phalcon phalcon
+```
+
+### Composer
+```
+docker run -it --rm -v $(pwd)/project:/app amqamq/phalcon composer
+```
+
 ## Supported tags
 
 * [`7.1-cli`, `7.1`, `cli`, `latest` (7.1/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.1/cli/Dockerfile)
