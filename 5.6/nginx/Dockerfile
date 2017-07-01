@@ -2,7 +2,7 @@ FROM php:5.6-fpm
 
 LABEL maintainer "https://github.com/amq/"
 
-ENV PHALCON_VERSION=3.1.2
+ENV PHALCON_VERSION=3.2.0
 RUN set -xe \
 
 # cphalcon
@@ -22,7 +22,7 @@ RUN set -xe \
     && rm -f v${PHALCON_VERSION}.tar.gz
 
 # composer
-ENV COMPOSER_VERSION=1.4.1
+ENV COMPOSER_VERSION=1.4.2
 RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm -f composer-setup.php
@@ -39,7 +39,7 @@ WORKDIR /app
 
 RUN usermod -u 1000 www-data
 
-ENV NGINX_VERSION 1.13.1-1~jessie
+ENV NGINX_VERSION 1.13.2-1~jessie
 
 RUN set -e; \
     NGINX_GPGKEY=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62; \
