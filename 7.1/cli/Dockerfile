@@ -3,6 +3,7 @@ FROM php:7.1
 LABEL maintainer "https://github.com/amq/"
 
 ENV PHALCON_VERSION=3.2.1
+ENV DEVTOOLS_VERSION=3.2.0
 RUN set -xe \
 
 # cphalcon
@@ -15,11 +16,11 @@ RUN set -xe \
     && rm -rf v${PHALCON_VERSION}.tar.gz cphalcon-${PHALCON_VERSION} \
 
 # devtools
-    && curl -LO https://github.com/phalcon/phalcon-devtools/archive/v${PHALCON_VERSION}.tar.gz \
-    && tar xzf v${PHALCON_VERSION}.tar.gz \
-    && mv phalcon-devtools-${PHALCON_VERSION} /usr/local/phalcon-devtools \
+    && curl -LO https://github.com/phalcon/phalcon-devtools/archive/v${DEVTOOLS_VERSION}.tar.gz \
+    && tar xzf v${DEVTOOLS_VERSION}.tar.gz \
+    && mv phalcon-devtools-${DEVTOOLS_VERSION} /usr/local/phalcon-devtools \
     && ln -s /usr/local/phalcon-devtools/phalcon.php /usr/local/bin/phalcon \
-    && rm -f v${PHALCON_VERSION}.tar.gz
+    && rm -f v${DEVTOOLS_VERSION}.tar.gz
 
 # composer
 ENV COMPOSER_VERSION=1.4.2
