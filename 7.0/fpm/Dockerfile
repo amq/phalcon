@@ -2,8 +2,8 @@ FROM php:7.0-fpm
 
 LABEL maintainer "https://github.com/amq/"
 
-ENV PHALCON_VERSION=3.2.1
-ENV DEVTOOLS_VERSION=3.2.0
+ENV PHALCON_VERSION=3.2.2
+ENV DEVTOOLS_VERSION=3.2.2
 RUN set -xe \
 
 # cphalcon
@@ -23,7 +23,7 @@ RUN set -xe \
     && rm -f v${DEVTOOLS_VERSION}.tar.gz
 
 # composer
-ENV COMPOSER_VERSION=1.4.2
+ENV COMPOSER_VERSION=1.5.1
 RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm -f composer-setup.php
