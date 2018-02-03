@@ -86,12 +86,12 @@ docker run -it --rm -v $(pwd)/project:/app amqamq/phalcon composer
 
 ## Supported tags
 
-* [`7.2-cli`, `cli`, `latest` (7.2/debian/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/debian/cli/Dockerfile)
+* [`7.2-cli`, `7.2`, `cli`, `latest` (7.2/debian/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/debian/cli/Dockerfile)
 * [`7.2-fpm`, `fpm` (7.2/debian/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/debian/fpm/Dockerfile)
 * [`7.2-nginx`, `nginx` (7.2/debian/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/debian/nginx/Dockerfile)
 * [`7.2-cli-alpine`, `cli-alpine` (7.2/alpine/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/alpine/cli/Dockerfile)
 * [`7.2-fpm-alpine`, `fpm-alpine` (7.2/alpine/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/alpine/fpm/Dockerfile)
 * [`7.2-nginx-alpine`, `nginx-alpine` (7.2/alpine/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/alpine/nginx/Dockerfile)
-* [`5.6-cli` (5.6/debian/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/5.6/debian/cli/Dockerfile)
+* [`5.6-cli`, `5.6` (5.6/debian/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/5.6/debian/cli/Dockerfile)
 * [`5.6-fpm` (5.6/debian/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/5.6/debian/fpm/Dockerfile)
 * [`5.6-nginx` (5.6/debian/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/5.6/debian/nginx/Dockerfile)
