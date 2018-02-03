@@ -24,7 +24,7 @@ Tools:
 # docker-compose.yml
 
   phalcon:
-    image: amqamq/phalcon:nginx
+    image: amqamq/phalcon:7.2-nginx-alpine
     restart: always
     ports:
       - "8080:80"
@@ -47,7 +47,7 @@ Tools:
       - ./project:/app
 
   phalcon:
-    image: amqamq/phalcon:7.1-fpm
+    image: amqamq/phalcon:7.2-fpm-alpine
     restart: always
     volumes:
       - ./phalcon:/app
@@ -86,12 +86,12 @@ docker run -it --rm -v $(pwd)/project:/app amqamq/phalcon composer
 
 ## Supported tags
 
-* [`7.1-cli`, `7.1`, `cli`, `latest` (7.1/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.1/cli/Dockerfile)
-* [`7.1-fpm`, `fpm` (7.1/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.1/fpm/Dockerfile)
-* [`7.1-nginx`, `nginx` (7.1/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.1/nginx/Dockerfile)
-* [`7.0-cli`, `7.0` (7.0/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.0/cli/Dockerfile)
-* [`7.0-fpm` (7.0/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.0/fpm/Dockerfile)
-* [`7.0-nginx` (7.0/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.0/nginx/Dockerfile)
-* [`5.6-cli`, `5.6` (5.6/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/5.6/cli/Dockerfile)
-* [`5.6-fpm` (5.6/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/5.6/fpm/Dockerfile)
-* [`5.6-nginx` (5.6/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/5.6/nginx/Dockerfile)
+* [`7.2-cli`, `cli`, `latest` (7.2/debian/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/debian/cli/Dockerfile)
+* [`7.2-fpm`, `fpm` (7.2/debian/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/debian/fpm/Dockerfile)
+* [`7.2-nginx`, `nginx` (7.2/debian/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/debian/nginx/Dockerfile)
+* [`7.2-cli-alpine`, `cli-alpine` (7.2/alpine/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/alpine/cli/Dockerfile)
+* [`7.2-fpm-alpine`, `fpm-alpine` (7.2/alpine/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/alpine/fpm/Dockerfile)
+* [`7.2-nginx-alpine`, `nginx-alpine` (7.2/alpine/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/7.2/alpine/nginx/Dockerfile)
+* [`5.6-cli` (5.6/debian/cli/Dockerfile)](https://github.com/amq/phalcon/blob/master/5.6/debian/cli/Dockerfile)
+* [`5.6-fpm` (5.6/debian/fpm/Dockerfile)](https://github.com/amq/phalcon/blob/master/5.6/debian/fpm/Dockerfile)
+* [`5.6-nginx` (5.6/debian/nginx/Dockerfile)](https://github.com/amq/phalcon/blob/master/5.6/debian/nginx/Dockerfile)
