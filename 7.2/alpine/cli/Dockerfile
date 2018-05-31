@@ -3,7 +3,7 @@ FROM php:7.2-cli-alpine3.7
 LABEL maintainer "https://github.com/amq/"
 
 # php modules
-ENV PHALCON_VERSION=3.3.1
+ENV PHALCON_VERSION=3.4.0
 RUN apk add --no-cache --virtual .build-deps \
         $PHPIZE_DEPS \
         libxml2-dev \
@@ -24,7 +24,7 @@ RUN apk add --no-cache \
     unzip
 
 # devtools
-ENV DEVTOOLS_VERSION=3.3.x
+ENV DEVTOOLS_VERSION=3.4.x
 RUN git clone https://github.com/phalcon/phalcon-devtools.git \
     && cd phalcon-devtools \
     && git checkout ${DEVTOOLS_VERSION} \
@@ -34,7 +34,7 @@ RUN git clone https://github.com/phalcon/phalcon-devtools.git \
     && rm -rf /usr/local/phalcon-devtools/.git
 
 # composer
-ENV COMPOSER_VERSION=1.6.3
+ENV COMPOSER_VERSION=1.6.5
 RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm -f composer-setup.php
