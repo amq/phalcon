@@ -13,24 +13,22 @@ RUN buildDeps="libxml2-dev zlib1g-dev" \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $buildDeps
 
 # cphalcon
-ENV PHALCON_VERSION=3.4.0
+ENV PHALCON_VERSION=3.4.1
 RUN curl -LO https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz \
     && tar xzf v${PHALCON_VERSION}.tar.gz \
     && docker-php-ext-install ${PWD}/cphalcon-${PHALCON_VERSION}/build/php5/64bits \
     && rm -rf v${PHALCON_VERSION}.tar.gz cphalcon-${PHALCON_VERSION}
 
 # devtools
-ENV DEVTOOLS_VERSION=3.4.x
-RUN git clone https://github.com/phalcon/phalcon-devtools.git \
-    && cd phalcon-devtools \
-    && git checkout ${DEVTOOLS_VERSION} \
-    && cd .. \
-    && mv phalcon-devtools /usr/local/phalcon-devtools \
+ENV DEVTOOLS_VERSION=3.4.0
+RUN curl -LO https://github.com/phalcon/phalcon-devtools/archive/v${DEVTOOLS_VERSION}.tar.gz \
+    && tar xzf v${DEVTOOLS_VERSION}.tar.gz \
+    && mv phalcon-devtools-${DEVTOOLS_VERSION} /usr/local/phalcon-devtools \
     && ln -s /usr/local/phalcon-devtools/phalcon.php /usr/local/bin/phalcon \
-    && rm -rf /usr/local/phalcon-devtools/.git
+    && rm -f v${DEVTOOLS_VERSION}.tar.gz
 
 # composer
-ENV COMPOSER_VERSION=1.6.5
+ENV COMPOSER_VERSION=1.7.1
 RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm -f composer-setup.php
