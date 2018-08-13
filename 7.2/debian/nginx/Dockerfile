@@ -39,7 +39,7 @@ RUN sed -ri 's/^www-data:x:33:33:/www-data:x:1000:1000:/' /etc/passwd
 
 RUN sed -i '/^access.log/ s/^/;/' /usr/local/etc/php-fpm.d/docker.conf
 
-ENV NGINX_VERSION 1.13.12-1~stretch
+ENV NGINX_VERSION 1.15.2-1~stretch
 
 RUN set -e; \
     NGINX_GPGKEY=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62; \
