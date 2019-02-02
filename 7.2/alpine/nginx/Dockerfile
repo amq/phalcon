@@ -1,9 +1,9 @@
-FROM php:7.2-fpm-alpine3.7
+FROM php:7.2-fpm-alpine
 
 LABEL maintainer "https://github.com/amq/"
 
 # php modules
-ENV PHALCON_VERSION=3.4.1
+ENV PHALCON_VERSION=3.4.2
 RUN apk add --no-cache --virtual .build-deps \
         $PHPIZE_DEPS \
         libxml2-dev \
@@ -28,7 +28,7 @@ RUN apk add --no-cache \
     unzip
 
 # devtools
-ENV DEVTOOLS_VERSION=3.4.0
+ENV DEVTOOLS_VERSION=3.4.1
 RUN curl -LO https://github.com/phalcon/phalcon-devtools/archive/v${DEVTOOLS_VERSION}.tar.gz \
     && tar xzf v${DEVTOOLS_VERSION}.tar.gz \
     && mv phalcon-devtools-${DEVTOOLS_VERSION} /usr/local/phalcon-devtools \
@@ -36,7 +36,7 @@ RUN curl -LO https://github.com/phalcon/phalcon-devtools/archive/v${DEVTOOLS_VER
     && rm -f v${DEVTOOLS_VERSION}.tar.gz
 
 # composer
-ENV COMPOSER_VERSION=1.7.1
+ENV COMPOSER_VERSION=1.8.3
 RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm -f composer-setup.php

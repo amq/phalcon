@@ -1,4 +1,4 @@
-FROM php:5.6-fpm-jessie
+FROM php:5.6-fpm-stretch
 
 LABEL maintainer "https://github.com/amq/"
 
@@ -13,14 +13,14 @@ RUN buildDeps="libxml2-dev zlib1g-dev" \
     && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $buildDeps
 
 # cphalcon
-ENV PHALCON_VERSION=3.4.1
+ENV PHALCON_VERSION=3.4.2
 RUN curl -LO https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz \
     && tar xzf v${PHALCON_VERSION}.tar.gz \
     && docker-php-ext-install ${PWD}/cphalcon-${PHALCON_VERSION}/build/php5/64bits \
     && rm -rf v${PHALCON_VERSION}.tar.gz cphalcon-${PHALCON_VERSION}
 
 # devtools
-ENV DEVTOOLS_VERSION=3.4.0
+ENV DEVTOOLS_VERSION=3.4.1
 RUN curl -LO https://github.com/phalcon/phalcon-devtools/archive/v${DEVTOOLS_VERSION}.tar.gz \
     && tar xzf v${DEVTOOLS_VERSION}.tar.gz \
     && mv phalcon-devtools-${DEVTOOLS_VERSION} /usr/local/phalcon-devtools \
@@ -28,7 +28,7 @@ RUN curl -LO https://github.com/phalcon/phalcon-devtools/archive/v${DEVTOOLS_VER
     && rm -f v${DEVTOOLS_VERSION}.tar.gz
 
 # composer
-ENV COMPOSER_VERSION=1.7.1
+ENV COMPOSER_VERSION=1.8.3
 RUN curl -L https://getcomposer.org/installer -o composer-setup.php \
     && php composer-setup.php --version=${COMPOSER_VERSION} --install-dir=/usr/local/bin --filename=composer \
     && rm -f composer-setup.php
@@ -39,7 +39,7 @@ RUN sed -ri 's/^www-data:x:33:33:/www-data:x:1000:1000:/' /etc/passwd
 
 RUN sed -i '/^access.log/ s/^/;/' /usr/local/etc/php-fpm.d/docker.conf
 
-ENV NGINX_VERSION 1.15.2-1~jessie
+ENV NGINX_VERSION 1.15.8-1~stretch
 
 RUN set -e; \
     NGINX_GPGKEY=573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62; \
@@ -56,7 +56,7 @@ RUN set -e; \
     test -z "$found" && echo >&2 "error: failed to fetch GPG key $NGINX_GPGKEY" && exit 1; \
     exit 0
 
-RUN echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list \
+RUN echo "deb http://nginx.org/packages/mainline/debian/ stretch nginx" >> /etc/apt/sources.list \
     && apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -y \
                         ca-certificates \
