@@ -51,7 +51,7 @@ RUN set -e; \
         pgp.mit.edu \
     ; do \
         echo "Fetching GPG key $NGINX_GPGKEY from $server"; \
-        apt-key adv --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$NGINX_GPGKEY" && found=yes && break; \
+        apt-key adv --no-tty --keyserver "$server" --keyserver-options timeout=10 --recv-keys "$NGINX_GPGKEY" && found=yes && break; \
     done; \
     test -z "$found" && echo >&2 "error: failed to fetch GPG key $NGINX_GPGKEY" && exit 1; \
     exit 0
