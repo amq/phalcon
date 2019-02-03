@@ -5,7 +5,7 @@ LABEL maintainer "https://github.com/amq/"
 # packages and php modules
 RUN buildDeps="libxml2-dev zlib1g-dev" \
     && apt-get update -y \
-    && apt-get install -y $buildDeps unzip git --no-install-recommends --no-install-suggests \
+    && apt-get install -y $buildDeps unzip git gnupg dirmngr --no-install-recommends --no-install-suggests \
     && pecl install redis xdebug-2.5.5 \
     && docker-php-ext-enable redis xdebug \
     && docker-php-ext-install opcache pdo_mysql mysqli soap zip \
